@@ -51,7 +51,35 @@ body{
   <span class="app-title">煌 日本語オンライン G3 Online Receipt</span>
 </header>
 
+<div style="margin:20px;">
+    <button onclick="changeReceipt(10)">10回</button>
+    <button onclick="changeReceipt(20)">20回</button>
+    <button onclick="changeReceipt(30)">30回</button>
+</div>
+
 <img id="receipt" src="receipt10.png" alt="Receipt">
+
+<script>
+
+function changeReceipt(course){
+
+    const img = document.getElementById("receipt");
+
+    if(course === 10){
+        img.src = "receipt10.png";
+    }
+
+    if(course === 20){
+        img.src = "receipt20.png";
+    }
+
+    if(course === 30){
+        img.src = "receipt30.png";
+    }
+
+}
+
+</script>
 
 </body>
 </html>
