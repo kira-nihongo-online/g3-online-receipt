@@ -190,6 +190,11 @@ async function loadReceiptData(){
 
     console.log(data);
 
+    receiptData.name = data.name;
+    receiptData.date = data.date;
+
+    changeReceipt(data.course);
+
 }
 
 const receiptPos = {
@@ -283,8 +288,6 @@ receipt.addEventListener("click", function(e){
 });
 
 loadReceiptData();
-
-changeReceipt(10);
 
 </script>
 
