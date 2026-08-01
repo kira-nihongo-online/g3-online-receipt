@@ -180,6 +180,8 @@ const receiptData = {
 
 async function loadReceiptData(){
 
+    console.log("loadReceiptData 開始");
+
     const response = await fetch(
         "https://script.google.com/macros/s/AKfycbynod0rBS95yXLkUIYFOeZiTFHTUd6UJu578YxSESQgIFsA2EPpe7bE0GXNVbLe0Sx4Dg/exec?mode=receipt"
     );
