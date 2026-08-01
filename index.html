@@ -153,13 +153,11 @@ body{
 
     <div class="receipt-area" style="position:relative;">
 
-        <img id="receipt" src="receipt10.png" alt="Receipt">
+        <img id="receipt" src="receipt10/receipt10_0.png" alt="Receipt">
 
         <div id="studentName"></div>
 
         <div id="receiptDate"></div>
-
-        <img id="stamp" src="stamp.png" alt="Stamp">
 
         <div id="mousePos">X:0　Y:0</div>
 
@@ -264,7 +262,7 @@ function changeReceipt(course){
     receiptDate.textContent = receiptData.date;
 
     if(course===10){
-        img.src="receipt10.png";
+        img.src="receipt10/receipt10_0.png";
     }
 
     if(course===20){
