@@ -111,6 +111,8 @@ body{
     <div class="receipt-area">
 
         <img id="receipt" src="receipt10.png" alt="Receipt">
+        
+        <div id="mousePos">X:0　Y:0</div>
 
     </div>
 
@@ -149,6 +151,17 @@ function changeReceipt(course){
     }
 
 }
+
+const receipt = document.getElementById("receipt");
+const mousePos = document.getElementById("mousePos");
+
+receipt.addEventListener("mousemove", function(e){
+
+    mousePos.textContent =
+        "X:" + Math.round(e.offsetX) +
+        "  Y:" + Math.round(e.offsetY);
+
+});
 
 </script>
 
