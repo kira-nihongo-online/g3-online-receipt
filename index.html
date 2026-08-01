@@ -210,7 +210,7 @@ async function loadReceiptData(){
 
 }
 
-const receiptPos = {
+const receiptPos = { 
 
     10:{
         name:{
@@ -253,12 +253,42 @@ const receiptPos = {
 
 };
 
+const stampPos = {
+
+    10:{
+        startX:30,
+        startY:446,
+        gapX:120,
+        gapY:110,
+        width:120
+    },
+
+    20:{
+        startX:500,
+        startY:290,
+        gapX:120,
+        gapY:110,
+        width:90
+    },
+
+    30:{
+        startX:450,
+        startY:250,
+        gapX:120,
+        gapY:110,
+        width:80
+    }
+
+};
+
 function changeReceipt(course){
 
     const img=document.getElementById("receipt");
 
     const studentName = document.getElementById("studentName");
     const receiptDate = document.getElementById("receiptDate");
+
+    const stamp = document.getElementById("stamp");
 
     studentName.textContent = receiptData.name;
     receiptDate.textContent = receiptData.date;
@@ -286,6 +316,10 @@ function changeReceipt(course){
 
     receiptDate.style.fontSize =
         receiptPos[course].date.size + "px";
+
+    stamp.style.left = stampPos[course].startX + "px";
+    stamp.style.top = stampPos[course].startY + "px";
+    stamp.style.width = stampPos[course].width + "px";
 
 }
 
