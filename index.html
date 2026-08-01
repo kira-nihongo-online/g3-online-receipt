@@ -155,7 +155,7 @@ function changeReceipt(course){
 const receipt = document.getElementById("receipt");
 const mousePos = document.getElementById("mousePos");
 
-receipt.addEventListener("mousemove", function(e){
+receipt.addEventListener("click", function(e){
 
     mousePos.textContent =
         "X:" + Math.round(e.offsetX) +
