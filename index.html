@@ -128,16 +128,14 @@ body{
 
 }
 
-
-#stampArea{
+#stamp{
 
     position:absolute;
 
-    left:0;
-    top:0;
+    left:350px;
+    top:350px;
 
-    width:900px;
-    height:1200px;
+    width:120px;
 
 }
 
@@ -161,7 +159,7 @@ body{
 
         <div id="receiptDate"></div>
 
-        <div id="stampArea"></div>
+        <img id="stamp" src="stamp.png" alt="Stamp">
 
         <div id="mousePos">X:0　Y:0</div>
 
@@ -212,7 +210,7 @@ async function loadReceiptData(){
 
 }
 
-const receiptPos = { 
+const receiptPos = {
 
     10:{
         name:{
@@ -255,41 +253,12 @@ const receiptPos = {
 
 };
 
-const stampPos = {
-
-    10:{
-        startX:275,
-        startY:44,
-        gapX:74,
-        gapY:94,
-        width:65
-    },
-
-    20:{
-        startX:500,
-        startY:290,
-        gapX:120,
-        gapY:110,
-        width:90
-    },
-
-    30:{
-        startX:450,
-        startY:250,
-        gapX:120,
-        gapY:110,
-        width:80
-    }
-
-};
-
 function changeReceipt(course){
 
     const img=document.getElementById("receipt");
 
     const studentName = document.getElementById("studentName");
     const receiptDate = document.getElementById("receiptDate");
-    const stampArea = document.getElementById("stampArea");
 
     studentName.textContent = receiptData.name;
     receiptDate.textContent = receiptData.date;
@@ -317,16 +286,6 @@ function changeReceipt(course){
 
     receiptDate.style.fontSize =
         receiptPos[course].date.size + "px";
-
-    stampArea.innerHTML = `
-    <img src="stamp.png"
-         style="
-            position:absolute;
-            left:${stampPos[course].startX}px;
-            top:${stampPos[course].startY}px;
-            width:${stampPos[course].width}px;
-         ">
-    `;
 
 }
 
