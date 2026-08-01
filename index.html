@@ -128,14 +128,15 @@ body{
 
 }
 
-#stamp{
+#stampArea{
 
     position:absolute;
 
-    left:350px;
-    top:350px;
+    left:0;
+    top:0;
 
-    width:120px;
+    width:900px;
+    height:1200px;
 
 }
 
@@ -283,7 +284,7 @@ const stampPos = {
 
 function changeReceipt(course){
 
-    const img=document.getElementById("receipt");
+    const img = document.getElementById("receipt");
 
     const studentName = document.getElementById("studentName");
     const receiptDate = document.getElementById("receiptDate");
@@ -292,39 +293,30 @@ function changeReceipt(course){
     studentName.textContent = receiptData.name;
     receiptDate.textContent = receiptData.date;
 
-    if(course===10){
-        img.src="receipt10.png";
-    }
+    if(course===10) img.src="receipt10.png";
+    if(course===20) img.src="receipt20.png";
+    if(course===30) img.src="receipt30.png";
 
-    if(course===20){
-        img.src="receipt20.png";
-    }
+    img.onload = function(){
 
-    if(course===30){
-        img.src="receipt30.png";
-    }
+        studentName.style.left = receiptPos[course].name.left + "px";
+        studentName.style.top  = receiptPos[course].name.top + "px";
+        studentName.style.fontSize = receiptPos[course].name.size + "px";
 
-    studentName.style.left = receiptPos[course].name.left + "px";
-    studentName.style.top  = receiptPos[course].name.top + "px";
+        receiptDate.style.left = receiptPos[course].date.left + "px";
+        receiptDate.style.top  = receiptPos[course].date.top + "px";
+        receiptDate.style.fontSize = receiptPos[course].date.size + "px";
 
-    receiptDate.style.left = receiptPos[course].date.left + "px";
-    receiptDate.style.top  = receiptPos[course].date.top + "px"; 
-
-    studentName.style.fontSize =
-        receiptPos[course].name.size + "px";
-
-    receiptDate.style.fontSize =
-        receiptPos[course].date.size + "px";
-
-    stampArea.innerHTML = `
-    <img src="stamp.png"
-         style="
-            position:absolute;
-            left:${stampPos[course].startX}px;
-            top:${stampPos[course].startY}px;
-            width:${stampPos[course].width}px;
-         ">
-    `;
+        stampArea.innerHTML = `
+            <img src="stamp.png"
+                 style="
+                    position:absolute;
+                    left:${stampPos[course].startX}px;
+                    top:${stampPos[course].startY}px;
+                    width:${stampPos[course].width}px;
+                 ">
+        `;
+    };
 
 }
 
