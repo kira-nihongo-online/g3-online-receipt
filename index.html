@@ -177,22 +177,45 @@ body{
 const receiptPos = {
 
     10:{
-        name:{ left:328, top:197 },
-        date:{ left:585, top:205 }
+        name:{
+            left:328,
+            top:197,
+            size:15
+        },
+        date:{
+            left:585,
+            top:205,
+            size:10
+        }
     },
 
     20:{
-        name:{ left:260, top:284 },
-        date:{ left:664, top:284 }
+        name:{
+            left:280,
+            top:290,
+            size:18
+        },
+        date:{
+            left:670,
+            top:290,
+            size:10
+        }
     },
 
     30:{
-        name:{ left:274, top:243 },
-        date:{ left:598, top:248 }
+        name:{
+            left:274,
+            top:243,
+            size:14
+        },
+        date:{
+            left:598,
+            top:248,
+            size:9
+        }
     }
 
 };
-
 function changeReceipt(course){
 
     const img=document.getElementById("receipt");
@@ -216,7 +239,14 @@ function changeReceipt(course){
     studentName.style.top  = receiptPos[course].name.top + "px";
 
     receiptDate.style.left = receiptPos[course].date.left + "px";
-    receiptDate.style.top  = receiptPos[course].date.top + "px";
+    receiptDate.style.top  = receiptPos[course].date.top + "px"; 
+
+    studentName.style.fontSize =
+        receiptPos[course].name.size + "px";
+
+    receiptDate.style.fontSize =
+        receiptPos[course].date.size + "px";
+
 }
 
 const receipt = document.getElementById("receipt");
