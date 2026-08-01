@@ -174,9 +174,31 @@ body{
 
 <script>
 
+const receiptPos = {
+
+    10:{
+        name:{ left:328, top:197 },
+        date:{ left:585, top:205 }
+    },
+
+    20:{
+        name:{ left:260, top:284 },
+        date:{ left:664, top:284 }
+    },
+
+    30:{
+        name:{ left:274, top:243 },
+        date:{ left:598, top:248 }
+    }
+
+};
+
 function changeReceipt(course){
 
     const img=document.getElementById("receipt");
+
+    const studentName = document.getElementById("studentName");
+    const receiptDate = document.getElementById("receiptDate");
 
     if(course===10){
         img.src="receipt10.png";
@@ -190,6 +212,11 @@ function changeReceipt(course){
         img.src="receipt30.png";
     }
 
+    studentName.style.left = receiptPos[course].name.left + "px";
+    studentName.style.top  = receiptPos[course].name.top + "px";
+
+    receiptDate.style.left = receiptPos[course].date.left + "px";
+    receiptDate.style.top  = receiptPos[course].date.top + "px";
 }
 
 const receipt = document.getElementById("receipt");
