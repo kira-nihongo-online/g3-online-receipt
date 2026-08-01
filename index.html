@@ -144,13 +144,9 @@ body{
 
         <img id="receipt" src="receipt10.png" alt="Receipt">
         
-        <div id="studentName">
-            山田 太郎
-        </div>
+        <div id="studentName"></div>
 
-        <div id="receiptDate">
-            15/07/2026
-        </div>
+        <div id="receiptDate"></div>
 
             <div id="mousePos">X:0　Y:0</div>
 
@@ -173,6 +169,14 @@ body{
 </div>
 
 <script>
+
+const receiptData = {
+
+    name : "山田 太郎",
+
+    date : "15/07/2026"
+
+};
 
 const receiptPos = {
 
@@ -216,12 +220,16 @@ const receiptPos = {
     }
 
 };
+
 function changeReceipt(course){
 
     const img=document.getElementById("receipt");
 
     const studentName = document.getElementById("studentName");
     const receiptDate = document.getElementById("receiptDate");
+
+    studentName.textContent = receiptData.name;
+    receiptDate.textContent = receiptData.date;
 
     if(course===10){
         img.src="receipt10.png";
