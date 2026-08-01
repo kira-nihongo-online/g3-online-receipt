@@ -143,7 +143,7 @@ body{
     <div class="receipt-area" style="position:relative;">
 
         <img id="receipt" src="receipt10.png" alt="Receipt">
-        
+
         <div id="studentName"></div>
 
         <div id="receiptDate"></div>
@@ -177,6 +177,18 @@ const receiptData = {
     date : "15/07/2026"
 
 };
+
+async function loadReceiptData(){
+
+    const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbynod0rBS95yXLkUIYFOeZiTFHTUd6UJu578YxSESQgIFsA2EPpe7bE0GXNVbLe0Sx4Dg/exec?mode=receipt"
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+}
 
 const receiptPos = {
 
@@ -267,6 +279,8 @@ receipt.addEventListener("click", function(e){
         "  Y:" + Math.round(e.offsetY);
 
 });
+
+loadReceiptData();
 
 changeReceipt(10);
 
