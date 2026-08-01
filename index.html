@@ -159,7 +159,7 @@ body{
 
         <div id="receiptDate"></div>
 
-        <img id="stamp" src="stamp.png" alt="Stamp">
+        <div id="stampArea"></div>
 
         <div id="mousePos">X:0　Y:0</div>
 
@@ -256,10 +256,10 @@ const receiptPos = {
 const stampPos = {
 
     10:{
-        startX:30,
+        startX:300,
         startY:446,
-        gapX:120,
-        gapY:110,
+        gapX:74,
+        gapY:94,
         width:120
     },
 
@@ -287,8 +287,7 @@ function changeReceipt(course){
 
     const studentName = document.getElementById("studentName");
     const receiptDate = document.getElementById("receiptDate");
-
-    const stamp = document.getElementById("stamp");
+    const stampArea = document.getElementById("stampArea");
 
     studentName.textContent = receiptData.name;
     receiptDate.textContent = receiptData.date;
@@ -317,9 +316,15 @@ function changeReceipt(course){
     receiptDate.style.fontSize =
         receiptPos[course].date.size + "px";
 
-    stamp.style.left = stampPos[course].startX + "px";
-    stamp.style.top = stampPos[course].startY + "px";
-    stamp.style.width = stampPos[course].width + "px";
+    stampArea.innerHTML = `
+    <img src="stamp.png"
+         style="
+            position:absolute;
+            left:${stampPos[course].startX}px;
+            top:${stampPos[course].startY}px;
+            width:${stampPos[course].width}px;
+         ">
+    `;
 
 }
 
