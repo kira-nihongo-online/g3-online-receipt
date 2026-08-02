@@ -185,7 +185,9 @@ const receiptData = {
 
     name : "山田 太郎",
 
-    date : "15/07/2026"
+    date : "15/07/2026",
+
+    count : 1
 
 };
 
@@ -211,6 +213,7 @@ async function loadReceiptData(){
 
     receiptData.name = data.name;
     receiptData.date = data.date;
+    receiptData.count = data.count;
 
     changeReceipt(data.course);
 
@@ -261,7 +264,7 @@ const receiptPos = {
 
 function changeReceipt(course){
 
-    const img=document.getElementById("receipt");
+    const img = document.getElementById("receipt");
 
     const studentName = document.getElementById("studentName");
     const receiptDate = document.getElementById("receiptDate");
@@ -269,23 +272,23 @@ function changeReceipt(course){
     studentName.textContent = receiptData.name;
     receiptDate.textContent = receiptData.date;
 
-    if(course===10){
-        img.src="receipt10/receipt10_0.png";
-    }
+    // ===== 用紙選択 =====
+    if(course === 10){
 
-    if(course===20){
-        img.src="receipt20.png";
-    }
+        let count = receiptData.count;
 
-    if(course===30){
-        img.src="receipt30.png";
+        if(count < 1) count = 1;
+        if(count > 10) count = 10;
+
+        img.src = "receipt10/receipt10_" + count + ".png";
+
     }
 
     studentName.style.left = receiptPos[course].name.left + "px";
     studentName.style.top  = receiptPos[course].name.top + "px";
 
     receiptDate.style.left = receiptPos[course].date.left + "px";
-    receiptDate.style.top  = receiptPos[course].date.top + "px"; 
+    receiptDate.style.top  = receiptPos[course].date.top + "px";
 
     studentName.style.fontSize =
         receiptPos[course].name.size + "px";
