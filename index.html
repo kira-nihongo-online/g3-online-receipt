@@ -193,9 +193,18 @@ async function loadReceiptData(){
 
     console.log("loadReceiptData 開始");
 
+    // URLからID取得
+    const id = new URLSearchParams(window.location.search).get("id");
+
+    if(!id){
+        alert("IDがありません。");
+        return;
+    }
+
     const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbynod0rBS95yXLkUIYFOeZiTFHTUd6UJu578YxSESQgIFsA2EPpe7bE0GXNVbLe0Sx4Dg/exec?mode=receipt&id=BETA-001"
+        "https://script.google.com/macros/s/AKfycbynod0rBS95yXLkUIYFOeZiTFHTUd6UJu578YxSESQgIFsA2EPpe7bE0GXNVbLe0Sx4Dg/exec?mode=receipt&id=" + encodeURIComponent(id)
     );
+
     const data = await response.json();
 
     console.log(data);
