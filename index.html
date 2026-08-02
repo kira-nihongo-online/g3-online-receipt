@@ -272,7 +272,7 @@ function changeReceipt(course){
     studentName.textContent = receiptData.name;
     receiptDate.textContent = receiptData.date;
 
-    // ===== 用紙選択 =====
+    // ===== 10回コース =====
     if(course === 10){
 
         let count = receiptData.count;
@@ -284,12 +284,38 @@ function changeReceipt(course){
 
     }
 
+    // ===== 20回コース =====
+    if(course === 20){
+
+        let count = receiptData.count;
+
+        if(count < 1) count = 1;
+        if(count > 20) count = 20;
+
+        img.src = "receipt20/receipt20_" + count + ".png";
+
+    }
+
+    // ===== 30回コース =====
+    if(course === 30){
+
+        let count = receiptData.count;
+
+        if(count < 1) count = 1;
+        if(count > 30) count = 30;
+
+        img.src = "receipt30/receipt30_" + count + ".png";
+
+    }
+
+    // ===== 文字位置 =====
     studentName.style.left = receiptPos[course].name.left + "px";
     studentName.style.top  = receiptPos[course].name.top + "px";
 
     receiptDate.style.left = receiptPos[course].date.left + "px";
     receiptDate.style.top  = receiptPos[course].date.top + "px";
 
+    // ===== 文字サイズ =====
     studentName.style.fontSize =
         receiptPos[course].name.size + "px";
 
@@ -297,7 +323,6 @@ function changeReceipt(course){
         receiptPos[course].date.size + "px";
 
 }
-
 const receipt = document.getElementById("receipt");
 const mousePos = document.getElementById("mousePos");
 
