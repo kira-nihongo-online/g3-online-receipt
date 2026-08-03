@@ -441,6 +441,34 @@ receipt.addEventListener("click", function(e){
 
 });
 
+// ===== 開発用 日付表示 =====
+function showTestDates(){
+
+    // 古い日付を削除
+    document.querySelectorAll(".stamp-date").forEach(el => el.remove());
+
+    const area = document.querySelector(".receipt-area");
+
+    for(let i=0;i<10;i++){
+
+        const div = document.createElement("div");
+
+        div.className = "stamp-date";
+
+        div.textContent = testDates[i];
+
+        div.style.left = datePos[10][i].x + "px";
+
+        div.style.top = datePos[10][i].y + "px";
+
+        area.appendChild(div);
+
+    }
+
+}
+
+showTestDates();
+
 loadReceiptData();
 
 </script>
