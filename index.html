@@ -147,7 +147,7 @@ body{
 
     text-align:center;
 
-    font-size:9px;
+    font-size:8px;
 
     font-weight:bold;
 
@@ -369,6 +369,29 @@ const datePos = {
 
 };
 
+// ===== スタンプ日付表示設定 =====
+const stampDateStyle = {
+
+    10:{
+        width:50,
+        size:8,
+        color:"#cc0000"
+    },
+
+    20:{
+        width:42,
+        size:7,
+        color:"#cc0000"
+    },
+
+    30:{
+        width:36,
+        size:6,
+        color:"#cc0000"
+    }
+
+};
+
 function changeReceipt(course){
 
     const img = document.getElementById("receipt");
@@ -460,6 +483,11 @@ function showTestDates(){
         div.style.left = datePos[10][i].x + "px";
 
         div.style.top = datePos[10][i].y + "px";
+
+        // ↓この3行追加
+        div.style.width = stampDateStyle[10].width + "px";
+        div.style.fontSize = stampDateStyle[10].size + "px";
+        div.style.color = stampDateStyle[10].color;
 
         area.appendChild(div);
 
