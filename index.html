@@ -464,6 +464,34 @@ receipt.addEventListener("click", function(e){
 
 });
 
+// ===== 開発用 スタンプ表示 =====
+function showTestStamps(){
+
+    // 古いスタンプを削除
+    document.querySelectorAll(".test-stamp").forEach(el => el.remove());
+
+    const area = document.querySelector(".receipt-area");
+    const course = DEBUG_COURSE;
+
+    for(let i=0;i<datePos[course].length;i++){
+
+        const img = document.createElement("img");
+
+        img.src = "stamp.png";
+        img.className = "test-stamp";
+
+        img.style.position = "absolute";
+        img.style.left = datePos[course][i].x + "px";
+        img.style.top  = datePos[course][i].y + "px";
+        img.style.width = "55px";
+        img.style.pointerEvents = "none";
+
+        area.appendChild(img);
+
+    }
+
+}
+
 // ===== 開発用 日付表示 =====
 function showTestDates(){
 
@@ -496,9 +524,11 @@ function showTestDates(){
 }
 
 changeReceipt(DEBUG_COURSE);
+showTestStamps();
 showTestDates();
 
 //loadReceiptData();
+
 </script>
 
 </body>
