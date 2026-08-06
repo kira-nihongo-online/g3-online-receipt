@@ -217,6 +217,9 @@ const testDates = [
 
 ];
 
+// ===== 開発用 =====
+const DEBUG_COURSE = 30;
+
 async function loadReceiptData(){
 
     console.log("loadReceiptData 開始");
@@ -463,8 +466,6 @@ receipt.addEventListener("click", function(e){
 
 // ===== 開発用 日付表示 =====
 function showTestDates(){
-
-    const DEBUG_COURSE = 30;
 
     // 古い日付を削除
     document.querySelectorAll(".stamp-date").forEach(el => el.remove());
