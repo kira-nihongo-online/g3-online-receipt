@@ -495,7 +495,10 @@ function changeReceipt(course){
     receiptDate.style.fontSize =
         receiptPos[course].date.size + "px";
 
+    showTestDates(course);
+
 }
+
 const receipt = document.getElementById("receipt");
 
 receipt.addEventListener("click", function(e){
