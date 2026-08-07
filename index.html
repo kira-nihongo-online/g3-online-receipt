@@ -501,9 +501,15 @@ const mousePos = document.getElementById("mousePos");
 
 receipt.addEventListener("click", function(e){
 
+    if(!gettingMousePos) return;
+
     mousePos.textContent =
         "X:" + Math.round(e.offsetX) +
         "  Y:" + Math.round(e.offsetY);
+
+    gettingMousePos = false;
+
+    openSetting();
 
 });
 
