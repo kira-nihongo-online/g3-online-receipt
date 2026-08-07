@@ -509,7 +509,13 @@ receipt.addEventListener("click", function(e){
 
     gettingMousePos = false;
 
-    openSetting();
+    receipt.onload = function(){
+
+        openSetting();
+
+        receipt.onload = null;
+
+    };
 
 });
 
