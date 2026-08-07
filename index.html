@@ -151,6 +151,38 @@ body{
 
 }
 
+/* ===== 設定モーダル ===== */
+
+.modal{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.35);
+
+}
+
+.modal-content{
+
+    width:350px;
+
+    margin:120px auto;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:8px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+
+}
+
 </style>
 
 </head>
@@ -509,6 +541,17 @@ showTestDates();
 loadReceiptData();
 
 </script>
+
+<!-- 設定モーダル -->
+<div id="settingModal" class="modal" style="display:none;">
+
+    <div class="modal-content">
+
+        <h2>設定</h2>
+
+    </div>
+
+</div>
 
 </body>
 </html>
