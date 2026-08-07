@@ -183,6 +183,16 @@ body{
 
 }
 
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
 </style>
 
 </head>
@@ -196,7 +206,7 @@ body{
         煌 日本語オンライン G3 Online Receipt
     </span>
 
-    <button id="settingButton">⚙ 設定</button>
+    <button id="settingButton" onclick="openSetting()">⚙ 設定</button>
 
 </header>
 
@@ -540,6 +550,18 @@ showTestDates();
 
 loadReceiptData();
 
+function openSetting(){
+
+    document.getElementById("settingModal").style.display = "block";
+
+}
+
+function closeSetting(){
+
+    document.getElementById("settingModal").style.display = "none";
+
+}
+
 </script>
 
 <!-- 設定モーダル -->
@@ -547,7 +569,13 @@ loadReceiptData();
 
     <div class="modal-content">
 
+    <div class="modal-header">
+
         <h2>設定</h2>
+
+        <button onclick="closeSetting()">✕</button>
+
+    </div>
 
     </div>
 
