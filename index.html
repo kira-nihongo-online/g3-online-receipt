@@ -497,11 +497,12 @@ function changeReceipt(course){
 
 }
 const receipt = document.getElementById("receipt");
-const mousePos = document.getElementById("mousePos");
 
 receipt.addEventListener("click", function(e){
 
     if(!gettingMousePos) return;
+
+    const mousePos = document.getElementById("mousePos");
 
     mousePos.textContent =
         "X:" + Math.round(e.offsetX) +
@@ -509,13 +510,7 @@ receipt.addEventListener("click", function(e){
 
     gettingMousePos = false;
 
-    receipt.onload = function(){
-
-        openSetting();
-
-        receipt.onload = null;
-
-    };
+    openSetting();
 
 });
 
