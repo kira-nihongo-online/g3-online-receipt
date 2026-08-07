@@ -240,6 +240,9 @@ const receiptData = {
 
     count : 1
 
+　　course : 10
+
+
 };
 
 // ===== 開発用ダミー日付 =====
@@ -279,6 +282,7 @@ async function loadReceiptData(){
     receiptData.name = data.name;
     receiptData.date = data.date;
     receiptData.count = data.count;
+    receiptData.course = data.course;
 
     changeReceipt(data.course);
 
