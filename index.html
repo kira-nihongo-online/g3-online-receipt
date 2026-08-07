@@ -177,13 +177,17 @@ body{
 
     <div class="control-panel">
 
-        <button onclick="changeReceipt(10)">10回</button>
+        <div id="devPanel">
 
-        <button onclick="changeReceipt(20)">20回</button>
+            <button onclick="changeReceipt(10)">10回</button>
 
-        <button onclick="changeReceipt(30)">30回</button>
+            <button onclick="changeReceipt(20)">20回</button>
 
-        <hr>
+            <button onclick="changeReceipt(30)">30回</button>
+
+            <hr>
+
+        </div>
 
         <button>PNG保存</button>
 
@@ -202,6 +206,9 @@ const receiptData = {
     count : 1
 
 };
+
+// ===== モード切替 =====
+const DEV_MODE = true;
 
 // ===== 開発用ダミー日付 =====
 const testDates = [
