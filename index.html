@@ -568,7 +568,22 @@ function getMousePos(){
 
 }
 
+function toggleTestDate(){
+
+    showTestDate = !showTestDate;
+
+    const btn = document.getElementById("toggleDateButton");
+
+    if(showTestDate){
+        btn.textContent = "日付表示";
+    }else{
+        btn.textContent = "日付非表示";
+    }
+
+}
+
 let gettingMousePos = false;
+let showTestDate = true;
 
 </script>
 
@@ -595,7 +610,7 @@ let gettingMousePos = false;
 
         </div>
 
-        <button id="toggleDateButton">
+        <button id="toggleDateButton" onclick="toggleTestDate()">
             日付表示
         </button>
 
