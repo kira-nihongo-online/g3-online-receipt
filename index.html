@@ -515,7 +515,7 @@ receipt.addEventListener("click", function(e){
 });
 
 // ===== 開発用 日付表示 =====
-function showTestDates(){
+function showTestDates(course){
 
     // 古い日付を削除
     document.querySelectorAll(".stamp-date").forEach(el => el.remove());
@@ -542,8 +542,6 @@ function showTestDates(){
     }
 
 }
-
-showTestDates();
 
 loadReceiptData();
 
