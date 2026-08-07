@@ -177,17 +177,13 @@ body{
 
     <div class="control-panel">
 
-        <div id="devPanel" style="display:flex; flex-direction:column; gap:10px;">
+        <button onclick="changeReceipt(10)">10回</button>
 
-            <button id="btn10" onclick="changeReceipt(10)">10回</button>
+        <button onclick="changeReceipt(20)">20回</button>
 
-            <button id="btn20" onclick="changeReceipt(20)">20回</button>
+        <button onclick="changeReceipt(30)">30回</button>
 
-            <button id="btn30" onclick="changeReceipt(30)">30回</button>
-
-            <hr>
-
-        </div>
+        <hr>
 
         <button>PNG保存</button>
 
@@ -206,9 +202,6 @@ const receiptData = {
     count : 1
 
 };
-
-// ===== モード切替 =====
-const DEV_MODE = true;
 
 // ===== 開発用ダミー日付 =====
 const testDates = [
@@ -507,9 +500,6 @@ function showTestDates(){
 showTestDates();
 
 loadReceiptData();
-
-document.getElementById("devPanel").style.display =
-    DEV_MODE ? "block" : "none";
 
 </script>
 
