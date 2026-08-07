@@ -523,6 +523,8 @@ function showTestDates(course){
     // 古い日付を削除
     document.querySelectorAll(".stamp-date").forEach(el => el.remove());
 
+    if(!showTestDate) return;
+
     const area = document.querySelector(".receipt-area");
 
     for(let i=0;i<datePos[course].length;i++){
