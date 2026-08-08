@@ -502,6 +502,10 @@ function changeReceipt(course){
 
     showTestDates(course);
 
+    if(!showTestDate){
+        showHistoryDates(course);
+    }
+
 }
 
 const receipt = document.getElementById("receipt");
@@ -551,6 +555,41 @@ function showTestDates(course){
 
     }
 
+}
+
+// ===== 実データの日付表示 =====
+function showHistoryDates(course){
+
+    // 古い日付を削除
+    document.querySelectorAll(".stamp-date").forEach(el => el.remove());
+
+    const area = document.querySelector(".receipt-area");
+
+    if(!receiptData.history) return;
+
+    for(let i = 0; i < datePos[course].length; i++){
+
+        const historyDate = receiptData.history[i];
+
+        // 履歴がない回は表示しない
+        if(!historyDate) continue;
+
+        const div = document.createElement("div");
+
+        div.className = "stamp-date";
+
+        // yyyy/MM/dd → yy/MM/dd
+        div.textContent = historyDate.substring(2);
+
+        div.style.left = datePos[course][i].x + "px";
+        div.style.top  = datePos[course][i].y + "px";
+
+        div.style.width = stampDateStyle[course].width + "px";
+        div.style.fontSize = stampDateStyle[course].size + "px";
+        div.style.color = stampDateStyle[course].color;
+
+        area.appendChild(div);
+    }
 }
 
 loadReceiptData();
