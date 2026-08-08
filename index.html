@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>G3 Online Receipt</title>
 
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 <style>
 
 body{
@@ -224,7 +226,7 @@ body{
 
     <div class="control-panel">
 
-        <button>PNG保存</button>
+        <button onclick="savePNG()">PNG保存</button>
 
     </div>
 
@@ -593,6 +595,25 @@ function showHistoryDates(course){
 }
 
 loadReceiptData();
+
+// ===== PNG保存 =====
+function savePNG(){
+
+    const receiptArea = document.querySelector(".receipt-area");
+
+    html2canvas(receiptArea).then(canvas => {
+
+        const link = document.createElement("a");
+
+        link.download = "G3_領収書.png";
+
+        link.href = canvas.toDataURL("image/png");
+
+        link.click();
+
+    });
+
+}
 
 function openSetting(){
 
