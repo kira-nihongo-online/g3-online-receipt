@@ -605,7 +605,7 @@ function savePNG(){
 
         const link = document.createElement("a");
 
-        link.download = "G3_領収書.png";
+        link.download = receiptData.name + "_領収書.png";
 
         link.href = canvas.toDataURL("image/png");
 
